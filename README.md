@@ -1,3 +1,2 @@
-# -AP-CSP-Decision-Maker-app
-Anime recommendation app 
+# -AP-CSP-Apps
 Javascript from Code.org
