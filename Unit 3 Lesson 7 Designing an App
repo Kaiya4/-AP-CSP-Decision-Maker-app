@@ -1,0 +1,362 @@
+//Source: SAT 3
+// Variables
+var q1;
+var q2;
+var q3;
+var q4;
+var q5;
+var score = 0;
+
+//Start Button Function
+onEvent("startButton", "click", function( ) {
+  setScreen("q1Screen");
+  playSound("sound://category_jump/arcade_game_jump_1.mp3", false);
+});
+
+//Back Button Functions
+onEvent("q1back","click",function( ) {
+  setScreen("mScreen");
+   playSound("sound://category_jump/arcade_game_jump_1.mp3", false);
+});
+onEvent("q2back","click",function( ) {
+  setScreen("q1Screen");
+   playSound("sound://category_jump/arcade_game_jump_1.mp3", false);
+});
+onEvent("q3back","click",function( ) {
+  setScreen("q2Screen");
+   playSound("sound://category_jump/arcade_game_jump_1.mp3", false);
+});
+onEvent("q4back","click",function( ) {
+  setScreen("q3Screen");
+   playSound("sound://category_jump/arcade_game_jump_1.mp3", false);
+});
+onEvent("q5back","click",function( ) {
+  setScreen("q4Screen");
+   playSound("sound://category_jump/arcade_game_jump_1.mp3", false);
+  
+//Restart Button Function
+});
+onEvent("restartButton","click",function( ) {
+  setScreen("mScreen");
+  score = 0;
+  deleteElement("a1");
+  deleteElement("a2");
+  deleteElement("a3");
+  deleteElement("a4");
+  deleteElement("a5");
+   playSound("sound://category_jump/arcade_game_jump_1.mp3", false);
+});
+
+//Question 1 Answer Functions
+onEvent("q1A", "click", function( ) {
+  setScreen("q2Screen");
+  q1="Wrong";
+  playSound("sound://category_jump/arcade_game_jump_18.mp3");
+});
+onEvent("q1B","click",function( ) {
+  setScreen("q2Screen");
+  q1="Wrong";
+  playSound("sound://category_jump/arcade_game_jump_18.mp3");
+});
+onEvent("q1C","click",function( ) {
+  setScreen("q2Screen");
+  q1="Wrong";
+  playSound("sound://category_jump/arcade_game_jump_18.mp3");
+});
+onEvent("q1D","click",function( ) {
+  setScreen("q2Screen");
+  score = score+1;
+  q1="Correct";
+  playSound("sound://category_jump/arcade_game_jump_18.mp3");
+});
+
+//Question 2 Answer Functions
+onEvent("q2A", "click", function( ) {
+  setScreen("q3Screen");
+  score=score+1;
+  q2="Correct";
+  playSound("sound://category_jump/arcade_game_jump_18.mp3");
+});
+onEvent("q2B","click",function( ) {
+  setScreen("q3Screen");
+  q2="Wrong";
+  playSound("sound://category_jump/arcade_game_jump_18.mp3");
+});
+onEvent("q2C","click",function( ) {
+  setScreen("q3Screen");
+  q2="Wrong";
+  playSound("sound://category_jump/arcade_game_jump_18.mp3");
+});
+onEvent("q2D","click",function( ) {
+  setScreen("q3Screen");
+  q2="Wrong";
+  playSound("sound://category_jump/arcade_game_jump_18.mp3");
+});
+
+//Question 3 Answer Functions
+onEvent("q3A", "click", function( ) {
+  setScreen("q4Screen");
+  q3="Wrong";
+  playSound("sound://category_jump/arcade_game_jump_18.mp3");
+});
+onEvent("q3B","click",function( ) {
+  setScreen("q4Screen");
+  q3="Wrong";
+  playSound("sound://category_jump/arcade_game_jump_18.mp3");
+});
+onEvent("q3C","click",function( ) {
+  setScreen("q4Screen");
+  score=score+1;
+  q3="Correct";
+  playSound("sound://category_jump/arcade_game_jump_18.mp3");
+});
+onEvent("q3D","click",function( ) {
+  setScreen("q4Screen");
+   q3="Wrong";
+   playSound("sound://category_jump/arcade_game_jump_18.mp3");
+});
+
+//Question 4 Answer Functions
+onEvent("q4A", "click", function( ) {
+  setScreen("q5Screen");
+   q4="Wrong";
+   playSound("sound://category_jump/arcade_game_jump_18.mp3");
+});
+onEvent("q4B","click",function( ) {
+  setScreen("q5Screen");
+  score=score+1;
+  q4="Correct";
+  playSound("sound://category_jump/arcade_game_jump_18.mp3");
+});
+onEvent("q4C","click",function( ) {
+  setScreen("q5Screen");
+  q4="Wrong";
+  playSound("sound://category_jump/arcade_game_jump_18.mp3");
+});
+onEvent("q4D","click",function( ) {
+  setScreen("q5Screen");
+  q4="Wrong";
+  playSound("sound://category_jump/arcade_game_jump_18.mp3");
+});
+
+//Question 5 Answer Functions 
+//Creates answer key in either red or green depending on user answer
+onEvent("q5A", "click", function( ) {
+  setScreen("rScreen");
+  playSound("sound://category_jump/arcade_game_jump_18.mp3");
+  q5="Wrong";
+  setText("youGotText", "You got " + score+ " out of "+ "5!");
+  textLabel("a1", "1)D");
+textLabel("a2", "2)A");
+textLabel("a3", "3)C");
+textLabel("a4", "4)B");
+textLabel("a5", "5)D");
+setPosition("a1", 73, 182, 50, 30);
+setPosition("a2", 73, 215 ,50, 30);
+setPosition("a3", 73, 245, 50, 30);
+setPosition("a4", 73, 277, 50, 30);
+setPosition("a5", 73, 308, 50, 30);
+setProperty("a1", "font-size", 26);
+setProperty("a2", "font-size", 26);
+setProperty("a3", "font-size", 26);
+setProperty("a4", "font-size", 26);
+setProperty("a5", "font-size", 26);
+setProperty("a1", "background-color", "transparent");
+setProperty("a2", "background-color", "transparent");
+setProperty("a3", "background-color", "transparent");
+setProperty("a4", "background-color", "transparent");
+setProperty("a5", "background-color", "transparent");
+if (q1=="Correct") {
+setProperty("a1", "text-color", "#90EE90");
+} else {
+  setProperty("a1", "text-color", "red");
+}
+if (q2=="Correct") {
+setProperty("a2", "text-color", "#90EE90");
+} else {
+  setProperty("a2", "text-color", "red");
+}
+if (q3=="Correct") {
+setProperty("a3", "text-color", "#90EE90");
+} else {
+  setProperty("a3", "text-color", "red");
+}
+if (q4=="Correct") {
+setProperty("a4", "text-color", "#90EE90");
+} else {
+  setProperty("a4", "text-color", "red");
+}
+if (q5=="Correct") {
+setProperty("a5", "text-color", "#90EE90");
+} else {
+  setProperty("a5", "text-color", "red");
+}
+if (q1=="Correct"&&q2=="Correct"&&q3=="Correct"&&q4=="Correct"&&q5=="Correct") {
+  playSound("sound://category_achievements/vibrant_game_game_gold_tresure_chest_open.mp3");
+}
+});
+onEvent("q5B","click",function( ) {
+  setScreen("rScreen");
+  playSound("sound://category_jump/arcade_game_jump_18.mp3");
+  q5="Wrong";
+  setText("youGotText", "You got " + score+ " out of "+ "5!");
+textLabel("a1", "1)D");
+textLabel("a2", "2)A");
+textLabel("a3", "3)C");
+textLabel("a4", "4)B");
+textLabel("a5", "5)D");
+setPosition("a1", 73, 182, 50, 30);
+setPosition("a2", 73, 215 ,50, 30);
+setPosition("a3", 73, 245, 50, 30);
+setPosition("a4", 73, 277, 50, 30);
+setPosition("a5", 73, 308, 50, 30);
+setProperty("a1", "font-size", 26);
+setProperty("a2", "font-size", 26);
+setProperty("a3", "font-size", 26);
+setProperty("a4", "font-size", 26);
+setProperty("a5", "font-size", 26);
+setProperty("a1", "background-color", "transparent");
+setProperty("a2", "background-color", "transparent");
+setProperty("a3", "background-color", "transparent");
+setProperty("a4", "background-color", "transparent");
+setProperty("a5", "background-color", "transparent");
+if (q1=="Correct") {
+setProperty("a1", "text-color", "#90EE90");
+} else {
+  setProperty("a1", "text-color", "red");
+}
+if (q2=="Correct") {
+setProperty("a2", "text-color", "#90EE90");
+} else {
+  setProperty("a2", "text-color", "red");
+}
+if (q3=="Correct") {
+setProperty("a3", "text-color", "#90EE90");
+} else {
+  setProperty("a3", "text-color", "red");
+}
+if (q4=="Correct") {
+setProperty("a4", "text-color", "#90EE90");
+} else {
+  setProperty("a4", "text-color", "red");
+}
+if (q5=="Correct") {
+setProperty("a5", "text-color", "#90EE90");
+} else {
+  setProperty("a5", "text-color", "red");
+}
+if (q1=="Correct"&&q2=="Correct"&&q3=="Correct"&&q4=="Correct"&&q5=="Correct") {
+  playSound("sound://category_achievements/vibrant_game_game_gold_tresure_chest_open.mp3");
+}
+});
+onEvent("q5C","click",function( ) {
+  setScreen("rScreen");
+  playSound("sound://category_jump/arcade_game_jump_18.mp3");
+  q5="Wrong";
+  setText("youGotText", "You got " + score+ " out of "+ "5!");
+textLabel("a1", "1)D");
+textLabel("a2", "2)A");
+textLabel("a3", "3)C");
+textLabel("a4", "4)B");
+textLabel("a5", "5)D");
+setPosition("a1", 73, 182, 50, 30);
+setPosition("a2", 73, 215 ,50, 30);
+setPosition("a3", 73, 245, 50, 30);
+setPosition("a4", 73, 277, 50, 30);
+setPosition("a5", 73, 308, 50, 30);
+setProperty("a1", "font-size", 26);
+setProperty("a2", "font-size", 26);
+setProperty("a3", "font-size", 26);
+setProperty("a4", "font-size", 26);
+setProperty("a5", "font-size", 26);
+setProperty("a1", "background-color", "transparent");
+setProperty("a2", "background-color", "transparent");
+setProperty("a3", "background-color", "transparent");
+setProperty("a4", "background-color", "transparent");
+setProperty("a5", "background-color", "transparent");
+if (q1=="Correct") {
+setProperty("a1", "text-color", "#90EE90");
+} else {
+  setProperty("a1", "text-color", "red");
+}
+if (q2=="Correct") {
+setProperty("a2", "text-color", "#90EE90");
+} else {
+  setProperty("a2", "text-color", "red");
+}
+if (q3=="Correct") {
+setProperty("a3", "text-color", "#90EE90");
+} else {
+  setProperty("a3", "text-color", "red");
+}
+if (q4=="Correct") {
+setProperty("a4", "text-color", "#90EE90");
+} else {
+  setProperty("a4", "text-color", "red");
+}
+if (q5=="Correct") {
+setProperty("a5", "text-color", "#90EE90");
+} else {
+  setProperty("a5", "text-color", "red");
+}
+if (q1=="Correct"&&q2=="Correct"&&q3=="Correct"&&q4=="Correct"&&q5=="Correct") {
+  playSound("sound://category_achievements/vibrant_game_game_gold_tresure_chest_open.mp3");
+}
+});
+onEvent("q5D","click",function( ) {
+  setScreen("rScreen");
+  playSound("sound://category_jump/arcade_game_jump_18.mp3");
+  q5="Correct";
+  score=score+1;
+  setText("youGotText", "You got " + score+ " out of "+ "5!");
+  textLabel("a1", "1)D");
+textLabel("a2", "2)A");
+textLabel("a3", "3)C");
+textLabel("a4", "4)B");
+textLabel("a5", "5)D");
+setPosition("a1", 73, 182, 50, 30);
+setPosition("a2", 73, 215 ,50, 30);
+setPosition("a3", 73, 245, 50, 30);
+setPosition("a4", 73, 277, 50, 30);
+setPosition("a5", 73, 308, 50, 30);
+setProperty("a1", "font-size", 26);
+setProperty("a2", "font-size", 26);
+setProperty("a3", "font-size", 26);
+setProperty("a4", "font-size", 26);
+setProperty("a5", "font-size", 26);
+setProperty("a1", "background-color", "transparent");
+setProperty("a2", "background-color", "transparent");
+setProperty("a3", "background-color", "transparent");
+setProperty("a4", "background-color", "transparent");
+setProperty("a5", "background-color", "transparent");
+if (q1=="Correct") {
+setProperty("a1", "text-color", "#90EE90");
+} else {
+  setProperty("a1", "text-color", "red");
+}
+if (q2=="Correct") {
+setProperty("a2", "text-color", "#90EE90");
+} else {
+  setProperty("a2", "text-color", "red");
+}
+if (q3=="Correct") {
+setProperty("a3", "text-color", "#90EE90");
+} else {
+  setProperty("a3", "text-color", "red");
+}
+if (q4=="Correct") {
+setProperty("a4", "text-color", "#90EE90");
+} else {
+  setProperty("a4", "text-color", "red");
+}
+if (q5=="Correct") {
+setProperty("a5", "text-color", "#90EE90");
+} else {
+  setProperty("a5", "text-color", "red");
+}
+if (q1=="Correct"&&q2=="Correct"&&q3=="Correct"&&q4=="Correct"&&q5=="Correct") {
+  playSound("sound://category_achievements/vibrant_game_game_gold_tresure_chest_open.mp3");
+}
+});
+
+
