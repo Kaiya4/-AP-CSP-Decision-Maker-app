@@ -1,0 +1,70 @@
+//Variables
+var color;
+var fontF;
+var quote ;
+var fontS=6 ;
+
+//FUNCTIONS CALLED UPON INSIDE EVENT
+
+//It will update screen and check if conditions are met
+//when a different color is chosen from the dropdown menu
+onEvent("colorInput", "change", function( ) {
+  test();
+
+});
+  //It will update screen and check if conditions are met
+//when the Font Size slider is moved
+onEvent("fontSizeInput","input" , function( ) {
+  test();
+
+});
+ //It will update screen and check if conditions are met
+//whenever something is typed in the quote section
+onEvent("quoteInput", "input", function( ) {
+  test();
+  
+});
+//It will update screen and check if conditions are met
+//when a different font family is chosen from the dropdown menu
+onEvent("fontFamilyInput", "change", function( ) {
+  test();
+ 
+});
+
+
+//FUNCTIONS I WILL BE USING
+
+//"upd" will update screen appropriately
+function upd(){
+    color= getText("colorInput");
+  fontF= getText("fontFamilyInput");
+  quote = getText("quoteInput");
+  fontS = getNumber("fontSizeInput");
+  setProperty("quoteOutput", "text", quote);
+  setProperty("quoteOutput", "font-size", fontS);
+  setProperty("quoteOutput", "font-family", fontF);
+  setProperty("colorOutput","background-color", color);
+}
+
+//"test" will check for conditions
+function test (){
+  //calls the upd function
+  upd();
+  //If-else conditions that check whenever 
+  //color is lavender and font family is Lucida Sans. 
+  //If it is then it'll show = "Great taste!"
+  if (color=="lavender" && fontF=="Lucida Sans") {
+  setText("feedbackOutput", "Great taste!" );
+  //OR whenever
+  //color is lightgreen and font size is 24. 
+  //If it is then it'll show =  "Plants, Nature, Trees!"
+} else if (color=="lightgreen" && fontS==24){
+  setText("feedbackOutput", "Plants, Nature, Trees!" );
+} else {
+  //If none of the conditions are met then it'll show
+  //"Bad taste!"
+  setText("feedbackOutput", "Bad taste!" );
+}
+}
+
+ 
