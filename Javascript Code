@@ -1,0 +1,166 @@
+//Variables
+var genre;
+var episodes;
+var name;
+var defaultText ;
+var anime;
+
+//Runs whenever there is an input on the "Your Name" part
+onEvent("nameInput", "input", function( ) {
+  check();
+ 
+});
+//Runs whenever a new option is selected from the dropdown menu
+onEvent("genreInput", "change", function( ) {
+  check();
+});
+//Runs whenever a new option is selected from the dropdown menu
+onEvent("episodesInput", "change", function( ) {
+  check();
+});
+
+//Hides all images
+function hide (){
+  hideElement("AOT");
+  hideElement("BSD");
+  hideElement("CAS");
+  hideElement("CG");
+  hideElement("CPE");
+  hideElement("DS");
+  hideElement("Erased");
+  hideElement("FB");
+  hideElement("JJK");
+  hideElement("KLIW");
+  hideElement("MDD");
+  hideElement("OPM");
+  hideElement("PP");
+  hideElement("SG");
+  hideElement("TGOHS");
+  hideElement("TPN");
+}
+
+//Updates anime recommended area and images depending on selected genre and episode count
+function check(){
+  //Sets the variables
+  genre=getText("genreInput");
+  episodes=getText("episodesInput");
+  name=getText("nameInput");
+  //Condition to verify if there is a username
+  //If there's no username then the user will be regarded as "you"
+  if (name== ""){
+defaultText ="Hey you!" + "\n You should watch: \n " ;
+}else {
+  //If the user has a username then the user will be regarded as the username he or she typed
+   defaultText ="Hey " + name + "!" + "\n"+ name +" should watch: \n" ;
+}
+//Checks if the user selected the Action genre
+if (genre=="Action") {
+  //Conditional to check the episode count range the user wants to watch
+ //Hides all previous images
+     //Gives the recommended anime
+  //Then, it shows an image of the anime recommended
+ if (episodes=="13 or less"){
+   hide();
+    anime= defaultText + "The God of High School"; 
+    showElement("TGOHS");
+  } else if (episodes=="26 or less"){
+  hide();
+    anime= defaultText + "One Punch Man";
+     showElement("OPM");
+  }else if (episodes=="50 or less"){
+  hide();
+     anime= defaultText + "Jujutsu Kaisen";
+     showElement("JJK");
+  } else if (episodes=="More than 50"){
+ hide();
+    anime= defaultText + "Attack on Titan";
+      showElement("AOT");
+      
+  }
+  //Checks if the user selected the Mystery genre
+} else if (genre=="Mystery"){
+   //Conditional to check the episode count range the user wants to watch
+//Hides all previous images
+     //Gives the recommended anime
+  //Then, it shows an image of the anime recommended
+ if (episodes=="13 or less"){
+   hide();
+    anime= defaultText + "Erased"; 
+     showElement("Erased");
+  } else if (episodes=="26 or less"){
+ hide();
+    anime= defaultText + "The Promised Neverland";
+     showElement("TPN");
+  }else if (episodes=="50 or less"){
+   hide();
+     anime= defaultText + "Psycho-Pass";
+     showElement("PP");
+  } else if (episodes=="More than 50"){
+  hide();
+    anime= defaultText + "Bungo Stray Dogs";
+      showElement("BSD");
+      
+  }
+  //Checks if the user selected the Sci-fi genre
+} else if (genre=="Sci-fi"){
+   //Conditional to check the episode count range the user wants to watch
+   //Hides all previous images
+     //Gives the recommended anime
+  //Then, it shows an image of the anime recommended
+if (episodes=="13 or less"){
+ hide();
+    anime= defaultText + "Cyberpunk: Edgerunners";
+     showElement("CPE");
+  } else if (episodes=="26 or less"){
+  hide();
+    anime= defaultText + "Steins;Gate";
+     showElement("SG");
+  }else if (episodes=="50 or less"){
+    hide();
+     anime= defaultText + "Code Geass: Lelouch of the Rebellion";
+     showElement("CG");
+  } else if (episodes=="More than 50"){
+ hide();
+    anime= defaultText + "Dr. Stone";
+      showElement("DS");
+      
+  }
+  //Checks if the user selected the Romance genre
+} else if (genre=="Romance"){
+   //Conditional to check the episode count range the user wants to watch
+     //Hides all previous images
+     //Gives the recommended anime
+  //Then, it shows an image of the anime recommended
+ if (episodes=="13 or less"){
+    hide();
+    anime= defaultText + "My Dress-Up Darling"; 
+     showElement("MDD");
+  } else if (episodes=="26 or less"){
+    hide();
+    anime= defaultText + "Clannad: After Story";
+     showElement("CAS");
+  }else if (episodes=="50 or less"){
+    hide();
+     anime= defaultText + "Kaguya-sama: Love is War";
+     showElement("KLIW");
+  } else if (episodes=="More than 50"){
+   hide();
+    anime= defaultText + "Fruits Basket";
+      showElement("FB");
+      
+  }
+
+}
+//Checks if the user has a genre and episode count range selected
+//If they do have it then it outputs the text in the anime recommended area
+if (genre!="Select a genre" && episodes!="Select a range of episodes"){
+  setProperty("textOutput","text",anime);
+} else {
+  //If they don't have both a genre and episode count range selected
+  //Then the anime recommended area is cleared
+  //It also hides the images.
+ hide();
+  setProperty("textOutput","text","");
+  
+}
+}
