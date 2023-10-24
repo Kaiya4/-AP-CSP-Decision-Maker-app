@@ -1,0 +1,21 @@
+
+
+onEvent("calculateButton", "click", function() {
+  // Update Variables
+var day = getText("dayDropdown");
+var age = getNumber("ageDropdown");
+var discountCode = getText("discountInput");
+//Friday and under Coupon code = Free tickets
+if (day== "Friday" && discountCode== "FREEFRIDAY") {
+  setText( "ticketOutput", "Day: " + day + "\n" + "Age: " + age + "\n" + "Price: $0");
+//Weekday and over 18 = $10 tickets
+} else if ((day!= "Sunday" && day!= "Saturday" ) && (age>18)){
+  setText( "ticketOutput", "Day: " + day + "\n" + "Age: " + age + "\n" + "Price: $10");
+//Weekday and 18 or under = $5 tickets
+} else if ((day!= "Sunday" && day!= "Saturday" ) && (age<=18)) {
+ setText( "ticketOutput", "Day: " + day + "\n" + "Age: " + age + "\n" + "Price: $5");
+ //Weekend and any age = $10
+} else {
+  setText( "ticketOutput", "Day: " + day + "\n" + "Age: " + age + "\n" + "Price: $10");
+}
+});
