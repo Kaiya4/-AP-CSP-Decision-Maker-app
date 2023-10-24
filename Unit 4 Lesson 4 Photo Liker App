@@ -1,0 +1,33 @@
+// Create and assign values to your variables
+var comment = "OMG soooo cute!";
+var newComment ;
+var likeC = 0 ;
+//sets comment section
+setProperty("allCommentsOutput", "text", comment) ;
+// Add your event handlers
+//Dislike = minus one to likes count
+onEvent("downButton", "click", function( ) {
+  likeC= likeC - 1 ;
+   setText("likeCounterOutput", "Likes: "+likeC);
+   playSound("sound://category_jump/cartoon_synth_warp_jump.mp3");
+});
+//like = add one to likes count
+onEvent("upButton", "click", function( ) {
+   likeC= likeC +1 ;
+  setText("likeCounterOutput", "Likes: "+likeC);
+  playSound("sound://category_explosion/fun_bonus_explode_9.mp3");
+});
+//comment button will add the new comment to the comment section
+onEvent("commentButton", "click", function( ) {
+   newComment = getText("newCommentInput");
+   comment = comment + "\n" + newComment;
+setProperty("allCommentsOutput", "text", comment) ;
+playSound("sound://category_collect/puzzle_game_item_select_04.mp3");
+setText("newCommentInput", "");
+});
+
+
+
+  
+  
+ 
